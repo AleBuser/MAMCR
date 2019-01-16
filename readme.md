@@ -1,6 +1,6 @@
 # MAML_Ed25519 Python library
 ------
-Explanation and motivation: https://medium.com/.....
+Explanation and motivation: https://medium.com/@stkubr/iota-mam-ultra-lite-493d8d1fb71a
 
 Inspired from MAML: https://github.com/rufsam/maml
 
