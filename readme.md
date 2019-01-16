@@ -1,4 +1,4 @@
-# MAML_Ed25519 python library
+# MAML_Ed25519 Python library
 ------
 Explanation and motivation: https://medium.com/.....
 
