@@ -7,7 +7,7 @@ Inspired from MAML: https://github.com/rufsam/maml
 Uses Ed25519 signature scheme from: https://github.com/warner/python-ed25519
 
 ### Install
-pip install pyota ed25519 Crypto
+pip install pyota ed25519 pycrypto
 
 ### Usage
 
