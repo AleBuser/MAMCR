@@ -42,8 +42,6 @@ class MAML_Ed25519:
             return None
 
         try:
-            if self.channel_pwd:
-                tx_json['data_payload'] = AESCipher(self.channel_pwd).decrypt(tx_json['data_payload'])
             if not self.trusted_pubkeys:
                 is_trusted = True
             elif tx_json['pubkey'] in self.trusted_pubkeys:
@@ -52,7 +50,10 @@ class MAML_Ed25519:
                                                             Ed25519Cipher.key_from_string(tx_json['pubkey']))
             else:
                 is_trusted = False
-
+            
+            if self.channel_pwd:
+                tx_json['data_payload'] = AESCipher(self.channel_pwd).decrypt(tx_json['data_payload'])
+            
             msg = Message(tx_json['data_payload'], tx_json['pubkey'], tx_json['signature'])
             response = Response(address.__str__(),
                                 self.tryte_hash(address.__str__() + self.channel_pwd),
