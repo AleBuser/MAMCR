@@ -26,8 +26,6 @@ class MAM_Reader(object):
         read_res = self.MAMChannel.read()
         if read_res != None:
             if read_res.is_trusted == True:
-                print (int(time.time()))
-                print (read_res)
                 data_p = read_res.msg.data_payload
                 return data_p
             else:
