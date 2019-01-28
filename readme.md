@@ -9,6 +9,7 @@ Added Commit-Reveal functionalities to MAML for delayed publication of informati
 ```python
 import random
 import string
+import time
 from iota import Address
 from ciphers import Ed25519Cipher
 from mam_lite import MAML_Ed25519
@@ -29,6 +30,8 @@ DataToTransfer = {
 }
 
 CR.Commit(DataToTransfer)
+
+time.sleep(15)
 
 CR.Reveal()
 
