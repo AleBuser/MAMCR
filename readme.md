@@ -12,6 +12,9 @@ import string
 from iota import Address
 from ciphers import Ed25519Cipher
 from mam_lite import MAML_Ed25519
+from writer import MAM_Writer
+from reader import MAM_Reader
+from MAMCR import MAMCR
 
 addr = Address(''.join(random.choices(string.ascii_uppercase + '9', k=81)))
 
