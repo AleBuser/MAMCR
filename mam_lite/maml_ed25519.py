@@ -3,6 +3,7 @@ from iota import Address, TryteString
 from ciphers import Ed25519Cipher, AESCipher
 from mam_lite import Message, Response
 from tangle_connector import TangleConnector
+import time
 
 class MAML_Ed25519:
 
@@ -54,7 +55,7 @@ class MAML_Ed25519:
             if self.channel_pwd:
                 tx_json['data_payload'] = AESCipher(self.channel_pwd).decrypt(tx_json['data_payload'])
             
-            msg = Message(tx_json['data_payload'], tx_json['pubkey'], tx_json['signature'])
+            msg = Message(tx_json['data_payload'], tx_json['pubkey'], tx_json['signature'],tx_json['timestamp'])
             response = Response(address.__str__(),
                                 self.tryte_hash(address.__str__() + self.channel_pwd),
                                 msg, True, is_trusted)
@@ -72,7 +73,7 @@ class MAML_Ed25519:
         if self.channel_pwd:
             data = AESCipher(self.channel_pwd).encrypt(data).decode()
 
-        msg = Message().finalize(data, self.current_write_addr, pubkey, prikey)
+        msg = Message().finalize(data, self.current_write_addr, pubkey, prikey, int(time.time()) )
 
         response_tangle = self.tangle_con.send_msg_to_addr(Address(self.current_write_addr),
                                          msg.__str__(),

@@ -5,7 +5,7 @@ from typing import List, Dict
 
 
 class TangleConnector:
-    def __init__(self, url='https://nodes.thetangle.org:443', seed="TESTSEED9"):
+    def __init__(self, url='https://nutzdoch.einfachiota.de', seed="TESTSEED9"):
         self.iri_url = url
         self.iota_api = Iota(url, seed)
 
@@ -52,7 +52,7 @@ class TangleConnector:
             if response['trytes']:
                 trytes = [tryte[0:2187] for tryte in response['trytes']]
         except Exception:
-            logging.warning("Failed to get all signature fragments")
+            #logging.warning("Failed to get all signature fragments")
             trytes = None
         return trytes
 
