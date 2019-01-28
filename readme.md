@@ -1,6 +1,7 @@
 # MAMCR Python library
 ------
 Added Timestamps to MAML
+
 Added Commit-Reveal functionalities to MAML for delayed publication of information
 
 ### Usage
