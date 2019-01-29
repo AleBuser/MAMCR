@@ -1,8 +1,6 @@
 # MAMCR Python library
 ------
-Added Timestamps to MAML
-
-Added Commit-Reveal functionalities to MAML for delayed publication of information
+Commit Reveal over MAML, allows to delay publication of information while mainitaning generation time athenticity
 
 ### Usage
 
